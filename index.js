@@ -1,5 +1,5 @@
 const { Builder, By, Key, util } = require("selenium-webdriver");
-
+const Assert = require("assert")
 
 async function googling() {
   //buka browser
@@ -11,6 +11,9 @@ async function googling() {
   await driver.findElement(By.name("Submit")).click();
 
   let text = await driver.findElement(By.xpath("//li")).getText();
+
+  Assert.equal(text, "Welcome Admin", "Gagal");
+  console.log("Berhasil")
 
 }
 
